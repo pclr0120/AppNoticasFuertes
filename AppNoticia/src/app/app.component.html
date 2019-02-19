@@ -1,0 +1,53 @@
+<ion-app >
+ 
+  <ion-menu  side="start" swipe-gesture="true" menuId="Categorias"> 
+      <ion-header>
+        <ion-toolbar>
+          <ion-title  >Categoria y más..</ion-title>
+          <!-- <ion-button (click)="CerrarMenu()" item-end color="light">Ocultar</ion-button> -->
+
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list style="background:black">
+          <ion-item>
+              <ion-searchbar animated placeholder="Buscar Noticia"></ion-searchbar>
+          </ion-item>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label style="color:white">
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-item>
+            <ion-row>
+              <ion-label>Siguenos:</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                  <ion-button (click)="onClick()">
+                      <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                    </ion-button>
+              </ion-col>
+              <ion-col>
+                  <ion-button (click)="onClick()">
+                      <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            
+             
+          </ion-item>
+          <ion-item>
+            <ion-label>Contactanos:</ion-label>
+          </ion-item>
+        </ion-list>
+ 
+      </ion-content>
+    </ion-menu>  
+    <app-nav-bar></app-nav-bar>
+    <ion-router-outlet  main></ion-router-outlet>
+
+</ion-app >
